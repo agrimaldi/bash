@@ -11,9 +11,15 @@ alias L='most -M -s'
 ###################
 
 # command line browsing
-function	ll		{ ls -Flh "$@" ;}
-function	lla		{ ls -FAlh "$@" ;}
-function	lll	        { ll $@ | "$PAGER" ;}
+if [ `uname` = "Darwin" ]; then
+    function	ll		{ ls -Flh "$@" ;}
+    function	lla		{ ls -FAlh "$@" ;}
+    function	lll	        { ll $@ | "$PAGER" ;}
+else
+    function	ll		{ ls -Flh --color=auto "$@" ;}
+    function	lla		{ ls -FAlh --color=auto "$@" ;}
+    function	lll	        { ll $@ --color=auto | "$PAGER" ;}
+fi
 #function	c.		{ cd ../ ;}
 #function	c..		{ cd ../../ ;}
 #function	c...		{ cd ../../../ ;}
@@ -21,8 +27,13 @@ function	lll	        { ll $@ | "$PAGER" ;}
 function	dfh		{ df -hT "$@" ;}
 function	duu		{ du -xms "$@" | sort -n ;}
 function	dua		{ ls -l | du -m --max-depth=1 | sort -n ;}
-function	rmr		{ rm -vrf "$@" ;}
-function  sshidebian  { ssh -p 22525 agrimaldi@10.211.55.5 ;}
+function    rmr		{ rm -vrf "$@" ;}
+function    sshidebian  { ssh -p 22525 agrimaldi@10.211.55.5 ;}
+
+function    growl() {
+    echo -e $'\e]9;'${1}'\007'
+    return
+}
 
 # Rename *.foo to *.bar
 function rename_ext {

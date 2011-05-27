@@ -3,6 +3,10 @@ export DYLD_LIBRARY_PATH="/usr/local/cuda/lib"
 
 export CLICOLOR=1
 
+if [ `uname` != "Darwin" ]; then
+    eval `dircolors ~/.dircolors`
+fi
+
 # Alias & functions definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -20,7 +24,7 @@ fi
 
 # Set environement variables :
 export PAGER="less"
-export NODE_PATH="/usr/local/lib/node/"
+export NODE_PATH="/usr/local/lib/node_modules"
 
 COLOR_YELLOW="\[\e[0;33m\]"
 COLOR_RED="\[\e[0;31m\]"
