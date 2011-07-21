@@ -1,4 +1,4 @@
-export PATH="/usr/local/cuda/bin:/usr/local/sbin:/usr/local/ncbi/blast/bin:/usr/local/share/npm/bin:/usr/local/Cellar/python/2.7.1/bin:/usr/local/bin:$BIO_HOME/bin:${PATH}"
+export PATH="/usr/texbin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/ncbi/blast/bin:/usr/local/share/npm/bin:/usr/local/share/python:/usr/local/bin:$BIO_HOME/bin:${PATH}"
 export DYLD_LIBRARY_PATH="/usr/local/cuda/lib"
 
 export CLICOLOR=1
